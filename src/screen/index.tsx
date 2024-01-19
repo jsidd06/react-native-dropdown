@@ -1,6 +1,6 @@
 import {StyleSheet, View} from 'react-native';
 import React, {useState} from 'react';
-import DropdownComponent from '../components';
+import NativeDropdown from '../components';
 
 const optionData = [
   {key: 'label_1', value: 'Label 1'},
@@ -20,7 +20,7 @@ const Dropdown = () => {
   };
   return (
     <View style={styles.ctn}>
-      <DropdownComponent
+      <NativeDropdown
         title={selectOption || 'Dropdown'}
         onChangeText={dropdownHandler}
         optionData={optionData}

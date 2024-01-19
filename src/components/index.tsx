@@ -11,7 +11,7 @@ import {
 } from 'react-native';
 import React, {Fragment, useState} from 'react';
 
-const DropdownComponent = (props: any) => {
+const NativeDropdown = (props: any) => {
   const [openDropdown, setOpenDropdown] = useState(false);
 
   const dropdownHandler = () => {
@@ -73,7 +73,7 @@ const DropdownComponent = (props: any) => {
   );
 };
 
-export default DropdownComponent;
+export default NativeDropdown;
 
 const windowScreen: any = Dimensions.get('window').width;
 const heightScreen: any = Dimensions.get('window').height;
