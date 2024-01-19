@@ -1,4 +1,14 @@
-import {Pressable, StyleSheet, Text, Dimensions, View} from 'react-native';
+/* eslint-disable no-sequences */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable react-native/no-inline-styles */
+import {
+  Pressable,
+  StyleSheet,
+  Text,
+  Dimensions,
+  View,
+  ScrollView,
+} from 'react-native';
 import React, {Fragment, useState} from 'react';
 
 const DropdownComponent = (props: any) => {
@@ -8,35 +18,58 @@ const DropdownComponent = (props: any) => {
     setOpenDropdown(!openDropdown);
   };
 
+  const closeDropdown = () => {
+    setOpenDropdown(false);
+  };
+
   return (
-    <Fragment>
+    <View style={[style.btnRoot, props.rootStyle]}>
       <Pressable
         android_ripple={{color: props.android_ripple_color || '#ccc'}}
-        style={[style.btnStyle, props.dropDownRootStyle]}
+        style={[
+          style.btnStyle,
+          props.dropDownRootStyle,
+          {borderRadius: !openDropdown ? 4 : 0},
+        ]}
         onPress={dropdownHandler}>
         <Text style={[style.textStyle, props.dropDownRootTextStyle]}>
           {props.title}
         </Text>
       </Pressable>
-      {openDropdown &&
-        props.optionData.map((option: any) => (
-          <View
-            key={option.key}
-            style={[style.dropdownStyle, props.dropdownContainer]}>
-            <Pressable
-              android_ripple={{color: props.android_ripple_color || '#ccc'}}
-              onPress={() => {
-                setOpenDropdown(false), props.onChangeText(option);
-              }}
-              style={[style.subDropdownStyle, props.subDropdownContainer]}>
-              <Text
-                style={[style.dropdownTextStyle, props.dropdownSubValueStyle]}>
-                {option.value}
-              </Text>
-            </Pressable>
+      {openDropdown && (
+        <Fragment>
+          <Pressable
+            style={props.dropdownSubRootContainer}
+            onPress={closeDropdown}
+            android_ripple={{color: 'transparent'}}
+          />
+          <View style={[style.dropdownContainer, props.dropdownContainer]}>
+            <ScrollView
+              showsVerticalScrollIndicator={
+                props.showsVerticalScrollIndicator || false
+              }>
+              {props.optionData.map((option: any) => (
+                <Pressable
+                  key={option.key}
+                  android_ripple={{color: props.android_ripple_color || '#ccc'}}
+                  onPress={() => {
+                    closeDropdown(), props.onChangeText(option);
+                  }}
+                  style={[style.subDropdownStyle, props.subDropdownContainer]}>
+                  <Text
+                    style={[
+                      style.dropdownTextStyle,
+                      props.dropdownSubValueStyle,
+                    ]}>
+                    {option.value}
+                  </Text>
+                </Pressable>
+              ))}
+            </ScrollView>
           </View>
-        ))}
-    </Fragment>
+        </Fragment>
+      )}
+    </View>
   );
 };
 
@@ -46,6 +79,10 @@ const windowScreen: any = Dimensions.get('window').width;
 const heightScreen: any = Dimensions.get('window').height;
 
 const style = StyleSheet.create({
+  btnRoot: {
+    flex: 1,
+    marginTop: heightScreen * 0.1,
+  },
   btnStyle: {
     width: windowScreen * 0.38,
     height: heightScreen * 0.06,
@@ -56,6 +93,14 @@ const style = StyleSheet.create({
     borderColor: '#00A9FF',
     borderTopLeftRadius: 4,
     borderTopRightRadius: 4,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
   },
   textStyle: {
     color: '#000',
@@ -64,17 +109,23 @@ const style = StyleSheet.create({
     lineHeight: 19,
     textAlign: 'center',
   },
-  dropdownStyle: {
+  dropdownContainer: {
     width: windowScreen * 0.38,
-    borderStartWidth: 1,
-    borderEndWidth: 1,
-    borderColor: '#00A9FF',
-    borderBottomEndRadius: 4,
-    borderBottomStartRadius: 4,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
+    maxHeight: heightScreen * 0.2,
   },
   subDropdownStyle: {
     borderBottomWidth: 1,
-    borderBlockColor: '#00A9FF',
+    borderRightWidth: 1,
+    borderLeftWidth: 1,
+    borderColor: '#00A9FF',
     padding: 10,
   },
   dropdownTextStyle: {
