@@ -1,10 +1,10 @@
-# React Native dropdown custom button demo
+# React Native single selector
 
 ## Installation
 
 ### To use this component in your React Native project, install it via npm:
 
-`npm install react-native-native-dropdown`
+`npm i react-native-single-selector`
 
 ## Usage
 
