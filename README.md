@@ -1,79 +1,72 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# React Native dropdown custom button demo
 
-# Getting Started
+## Installation
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+### To use this component in your React Native project, install it via npm:
 
-## Step 1: Start the Metro Server
+`npm install react-native-native-dropdown`
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+## Usage
 
-To start Metro, run the following command from the _root_ of your React Native project:
+### Import the NativeDropdown component in your code and incorporate it within your views. Below is a basic example:
 
-```bash
-# using npm
-npm start
+```import React from "react";
+import { View } from "react-native";
+import NativeDropdown from "react-native-native-dropdown";
 
-# OR using Yarn
-yarn start
+const MyComponent = () => {
+  const optionData = [
+    { key: 1, value: "Option 1" },
+    { key: 2, value: "Option 2" },
+    { key: 3, value: "Option 3" },
+  ];
+
+  const handleChange = (selectedOption) => {
+    console.log("Selected option:", selectedOption);
+  };
+
+  return (
+    <View style={{ flex: 1 }}>
+      <NativeDropdown
+        title="Select an option"
+        optionData={optionData}
+        onChangeText={handleChange}
+      />
+    </View>
+  );
+};
+
+export default MyComponent;
 ```
 
-## Step 2: Start your Application
+## Props
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
+```
+● title (string): The text displayed on the dropdown button.
 
-### For Android
+● optionData (array): An array of objects representing the options in the dropdown. Each object should have a key and value.
 
-```bash
-# using npm
-npm run android
+● onChangeText (function): Callback function triggered when an option is selected. It receives the selected option as a parameter.
 
-# OR using Yarn
-yarn android
+● android_ripple_color (string, optional): Color for Android ripple effect. Defaults to "#ccc".
+
+● showsVerticalScrollIndicator (boolean, optional): Whether to show the vertical scroll indicator in the dropdown. Defaults to false.
+
+● rootStyle (object, optional): Additional styles for the root container.
+
+● dropDownRootStyle (object, optional): Additional styles for the dropdown button.
+
+● dropDownRootTextStyle (object, optional): Additional styles for the text inside the dropdown button.
+
+● dropdownContainer (object, optional): Additional styles for the dropdown container.
+
+● subDropdownContainer (object, optional): Additional styles for each individual dropdown option.
 ```
 
-### For iOS
+## Styling
 
-```bash
-# using npm
-npm run ios
+`You can customize the component further by adjusting the styles using the available props. Refer to the style section of the source code for more details.`
 
-# OR using Yarn
-yarn ios
-```
+## Example
 
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
-
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
-
-## Step 3: Modifying your App
-
-Now that you have successfully run the app, let's modify it.
-
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
-
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+`Check the provided example in the Usage section for a basic implementation. Feel free to customize the component according to your application's needs.`
