@@ -3,13 +3,9 @@ import React, {useState} from 'react';
 import NativeDropdown from '../components';
 
 const optionData = [
-  {key: 'label_1', value: 'Label 1'},
-  {key: 'label_2', value: 'Label 2'},
-  {key: 'label_3', value: 'Label 3'},
-  {key: 'label_4', value: 'Label 4'},
-  {key: 'label_5', value: 'Label 5'},
-  {key: 'label_6', value: 'Label 6'},
-  {key: 'none', value: 'None'},
+  {key: 1, value: 'Option 1'},
+  {key: 2, value: 'Option 2'},
+  {key: 3, value: 'Option 3'},
 ];
 
 const Dropdown = () => {

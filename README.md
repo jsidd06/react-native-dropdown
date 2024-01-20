@@ -1,5 +1,13 @@
 # React Native single selector
 
+## Android
+
+<br>
+
+![for android](src/assests/androidI.gif)
+
+<br>
+
 ## Installation
 
 ### To use this component in your React Native project, install it via npm:
