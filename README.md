@@ -20,7 +20,7 @@
 
 ```import React from "react";
 import { View } from "react-native";
-import NativeDropdown from "react-native-dropdown";
+import NativeDropdown from "react-native-single-selector";
 
 const MyComponent = () => {
   const optionData = [
