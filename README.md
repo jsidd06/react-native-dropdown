@@ -1,7 +1,5 @@
 # React Native single selector
 
-## Android
-
 <br>
 
 | iOS                             | Android                                  |
