@@ -4,7 +4,9 @@
 
 <br>
 
-![for android](src/assests/androidI.gif)
+| iOS                             | Android                                  |
+| ------------------------------- | ---------------------------------------- |
+| ![for iOS](src/assests/ios.gif) | ![for Android](src/assests/androidI.gif) |
 
 <br>
 
@@ -20,7 +22,7 @@
 
 ```import React from "react";
 import { View } from "react-native";
-import NativeDropdown from "react-native-native-dropdown";
+import NativeDropdown from "react-native-dropdown";
 
 const MyComponent = () => {
   const optionData = [
